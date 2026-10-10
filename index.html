@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07100a">
+<title>Your Name | Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06100a;--card:rgba(20,34,25,.75);--line:rgba(255,255,255,.09);--green:#7ccc45;--green2:#3d8a2b;--text:#f4f8f2;--muted:#b4c1b1;--tap:cubic-bezier(.2,.9,.3,1.2)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{min-height:100%;background:var(--bg)}
+body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--text);display:flex;justify-content:center;overflow-x:hidden;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+
+/* background */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(circle at 50% 0%,#12301a 0%,transparent 60%),radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.5px) 0 0/22px 22px}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px);animation:drift 14s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:320px;height:320px;background:#2f8a22;opacity:.5;top:-90px;left:-110px}
+.bg i:nth-child(2){width:280px;height:280px;background:#1d6b45;opacity:.45;bottom:4%;right:-100px;animation-delay:-5s}
+.bg i:nth-child(3){width:220px;height:220px;background:#6bb82f;opacity:.25;top:42%;left:-90px;animation-delay:-9s}
+.bg b{position:absolute;bottom:-10px;width:6px;height:6px;border-radius:50%;background:var(--green);opacity:0;animation:float 9s linear infinite}
+.bg b:nth-of-type(1){left:12%;animation-delay:0s}.bg b:nth-of-type(2){left:30%;animation-delay:2.5s;width:4px;height:4px}
+.bg b:nth-of-type(3){left:55%;animation-delay:5s}.bg b:nth-of-type(4){left:78%;animation-delay:1.5s;width:4px;height:4px}
+.bg b:nth-of-type(5){left:92%;animation-delay:6.5s}
+@keyframes drift{to{transform:translate3d(40px,60px,0) scale(1.15)}}
+@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-100vh);opacity:0}}
+
+main{position:relative;z-index:1;width:100%;max-width:440px;padding:34px 18px 36px;display:flex;flex-direction:column;align-items:center}
+
+/* avatar */
+.avatar{position:relative;width:136px;height:136px;border-radius:50%;padding:4px;background:conic-gradient(from 0deg,var(--green),#c4ff8a,var(--green2),var(--green));animation:spin 6s linear infinite,pop .9s var(--tap) both}
+.avatar::after{content:"";position:absolute;inset:-12px;border-radius:50%;box-shadow:0 0 45px rgba(124,204,69,.5);animation:pulse 3s ease-in-out infinite;pointer-events:none}
+.avatar .inner{width:100%;height:100%;border-radius:50%;background:#0c150f;overflow:hidden;display:grid;place-items:center;animation:spin 6s linear infinite reverse}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar svg{width:60%;height:60%;opacity:.5}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{opacity:.45;transform:scale(1.07)}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+
+.name{margin-top:20px;font-size:1.65rem;font-weight:700;display:flex;align-items:center;gap:8px;animation:rise .7s .2s both}
+.name svg{width:21px;height:21px;flex:none}
+.role{margin-top:2px;color:var(--green);font-weight:600;animation:rise .7s .3s both}
+.bio{margin-top:10px;text-align:center;color:var(--muted);font-size:.9rem;line-height:1.55;max-width:310px;animation:rise .7s .4s both}
+.chips{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;animation:rise .7s .5s both}
+.chips span{font-size:.75rem;padding:6px 13px;border-radius:99px;border:1px solid rgba(124,204,69,.4);background:rgba(124,204,69,.1);color:#d9f2c4}
+
+/* stats */
+.stats{margin-top:20px;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;animation:rise .7s .6s both}
+.stats div{text-align:center;padding:12px 6px;border-radius:16px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.stats b{display:block;font-size:1.25rem;font-weight:700;color:var(--green)}
+.stats small{font-size:.7rem;color:var(--muted)}
+
+/* social icon row */
+.socials{margin-top:20px;display:flex;gap:14px;animation:rise .7s .7s both}
+.socials a{width:52px;height:52px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;color:var(--text);transition:transform .25s var(--tap),background .25s,box-shadow .25s}
+.socials svg{width:23px;height:23px}
+.socials a:active{transform:scale(.88)}
+@media(hover:hover){.socials a:hover{transform:translateY(-4px);background:var(--green2);box-shadow:0 8px 22px rgba(124,204,69,.35)}}
+
+/* section titles */
+.sec{align-self:flex-start;margin:28px 0 12px 2px;font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:10px;width:100%;animation:rise .7s .8s both}
+.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.sec::before{content:"";width:4px;height:16px;border-radius:4px;background:var(--green)}
+
+/* cards */
+.list{width:100%;display:flex;flex-direction:column;gap:12px}
+.card{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:15px 16px;border-radius:18px;background:var(--card);border:1px solid var(--line);color:var(--text);text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:rise .6s both;transition:transform .25s var(--tap),border-color .25s,box-shadow .25s}
+.card:nth-child(1){animation-delay:.9s}.card:nth-child(2){animation-delay:1s}.card:nth-child(3){animation-delay:1.1s}.card:nth-child(4){animation-delay:1.2s}
+.card:active{transform:scale(.97)}
+@media(hover:hover){.card:hover{transform:translateY(-3px);border-color:rgba(124,204,69,.55);box-shadow:0 10px 26px rgba(0,0,0,.45)}.card:hover .go{transform:translateX(4px)}}
+.ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(124,204,69,.14);color:var(--green)}
+.ic svg{width:22px;height:22px}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-weight:600;font-size:1rem}
+.tx span{display:block;font-size:.78rem;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.go{flex:none;width:18px;height:18px;opacity:.7;transition:transform .25s}
+.card.primary{background:linear-gradient(135deg,#80cf49,#3a8628);border-color:transparent;box-shadow:0 10px 28px rgba(79,160,48,.38)}
+.card.primary .ic{background:rgba(255,255,255,.22);color:#fff}
+.card.primary .tx span{color:rgba(255,255,255,.88)}
+.card.primary::after,.card.work::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 4.5s 1.8s infinite}
+.card.work{border-color:rgba(124,204,69,.45);background:linear-gradient(135deg,rgba(124,204,69,.16),rgba(20,34,25,.8))}
+.card.work::after{animation-delay:3.2s;opacity:.5}
+.tag{position:absolute;top:10px;right:42px;font-size:.62rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--green);color:#0a1a07}
+@keyframes shine{0%{left:-60%}35%,100%{left:140%}}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.25);transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(4);opacity:0}}
+
+.cta{margin-top:26px;width:100%;text-align:center;padding:18px;border-radius:20px;border:1px dashed rgba(124,204,69,.45);background:rgba(124,204,69,.06);animation:rise .7s 1.3s both}
+.cta p{font-size:.85rem;color:var(--muted);line-height:1.5}
+.cta a{display:inline-block;margin-top:10px;padding:10px 22px;border-radius:99px;background:var(--green);color:#0a1a07;font-weight:600;font-size:.9rem;text-decoration:none;transition:transform .25s var(--tap)}
+.cta a:active{transform:scale(.94)}
+footer{margin-top:24px;font-size:.75rem;color:rgba(180,193,177,.6)}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i><b></b><b></b><b></b><b></b><b></b></div>
+
+<main>
+  <div class="avatar"><div class="inner" id="avatar">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c0-4.7 3.8-7.5 8.5-7.5s8.5 2.8 8.5 7.5z"/></svg>
+  </div></div>
+
+  <h1 class="name"><span id="name">Your Name</span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#4caf50"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </h1>
+  <p class="role" id="role">Your Title or Niche</p>
+  <p class="bio" id="bio">Write one or two short lines about yourself here.</p>
+  <div class="chips" id="chips"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <nav class="socials" id="socials"></nav>
+
+  <div class="sec">Follow me</div>
+  <section class="list">
+    <a class="card primary" data-p="instagram" href="https://www.instagram.com/deveshkikalam">
+      <div class="ic" data-i="instagram"></div><div class="tx"><b>Instagram</b><span class="sub"></span></div><i class="go" data-i="chevron"></i>
+    </a>
+    <a class="card" data-p="facebook" href="https://facebook.com/deveshkikalam">
+      <div class="ic" data-i="facebook"></div><div class="tx"><b>Facebook</b><span class="sub"></span></div><i class="go" data-i="chevron"></i>
+    </a>
+    <a class="card" data-p="youtube" href="#" hidden>
+      <div class="ic" data-i="youtube"></div><div class="tx"><b>YouTube</b><span class="sub"></span></div><i class="go" data-i="chevron"></i>
+    </a>
+    <a class="card" data-p="whatsapp" href="#" hidden>
+      <div class="ic" data-i="whatsapp"></div><div class="tx"><b>WhatsApp</b><span class="sub"></span></div><i class="go" data-i="chevron"></i>
+    </a>
+  </section>
+
+  <div class="sec">Work with me</div>
+  <section class="list">
+    <a class="card work" data-mail="collab" href="#">
+      <span class="tag">Open</span>
+      <div class="ic" data-i="handshake"></div><div class="tx"><b>Collaborations</b><span>Brand deals, shoutouts &amp; projects</span></div><i class="go" data-i="chevron"></i>
+    </a>
+    <a class="card work" data-mail="event" href="#">
+      <div class="ic" data-i="calendar"></div><div class="tx"><b>Event Bookings</b><span>Invite me to your event or show</span></div><i class="go" data-i="chevron"></i>
+    </a>
+  </section>
+
+  <div class="cta">
+    <p>Have an idea or an event in mind?<br>Send a short email with your date, place and details.</p>
+    <a id="mailBtn" href="#">Email me</a>
+  </div>
+
+  <footer id="footer">© 2026 Devesh Ki Kalam</footer>
+</main>
+
+<script>
+/* =========================================================
+   EDIT THIS SECTION ONLY
+   ========================================================= */
+const PROFILE = {
+  name:  "Devesh Kumar",
+  role:  "Poet",
+  bio:   "📖 Poetry | Shayari | Feelings",
+  photo: "profile.jpg",                       // put your photo next to index.html
+  chips: ["Creator", "Open for collabs", "Available for events"],   // up to 3-4 small tags, [] to hide
+  stats: [ ["10K+","Followers"], ["200+","Posts"], ["25+","Collabs"] ], // [] to hide
+  footer:"© 2026 Your Name"
+};
+
+/* Usernames only (no @, no link). "" hides that platform. */
+const USERNAMES = {
+  instagram: "deveshkikalam",
+  facebook:  "deveshkikalam",
+  youtube:   "",
+  whatsapp:  ""          // number with country code, e.g. 919876543210
+};
+
+/* Email for collaborations and event bookings */
+const EMAIL = {
+  collab: "deveshkikalam@gmail.com",
+  event:  "deveshkikalam@gmail.com"      // can be the same address
+};
+/* ========================================================= */
+
+const I = {
+  instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+  facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.9c0-.7.2-1.1 1.3-1.1H17V3h-2.6C11.6 3 10.5 4.7 10.5 6.6v1.9H8V11.5h2.5V21H14v-9.5h2.6l.4-3z"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>',
+  whatsapp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.3-1.8-1-.9.7a3.5 3.5 0 0 1-1.7-1.7l.7-.9-1-1.8z" fill="currentColor" stroke="none"/></svg>',
+  email:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>',
+  handshake:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l4-4 4 1 3-2 5 4v5l-4 3-3-1-3 1-6-5z"/><path d="M11 9l3 3M9 15l2 2"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 15l2.5 2.5L16 13"/></svg>',
+  chevron:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>'
+};
+const $ = id => document.getElementById(id);
+const clean = s => (s||"").trim().replace(/^@/,"");
+
+/* text */
+$("name").textContent = PROFILE.name; $("role").textContent = PROFILE.role; $("bio").textContent = PROFILE.bio;
+$("footer").textContent = PROFILE.footer; document.title = PROFILE.name + " | Links";
+$("chips").innerHTML = PROFILE.chips.map(c=>`<span>${c}</span>`).join("");
+$("stats").innerHTML = PROFILE.stats.map(s=>`<div><b>${s[0]}</b><small>${s[1]}</small></div>`).join("");
+if(!PROFILE.stats.length) $("stats").remove();
+
+/* icons */
+document.querySelectorAll("[data-i]").forEach(el=>el.innerHTML = I[el.dataset.i]);
+
+/* photo */
+if(PROFILE.photo){const img=new Image();img.alt=PROFILE.name;img.onload=()=>{$("avatar").innerHTML="";$("avatar").appendChild(img)};img.src=PROFILE.photo}
+
+/* social platforms */
+const P = {
+  instagram:{url:u=>`https://instagram.com/${u}`, sub:u=>`@${u}`},
+  facebook: {url:u=>`https://facebook.com/${u}`,  sub:u=>`facebook.com/${u}`},
+  youtube:  {url:u=>`https://youtube.com/@${u}`,  sub:u=>`@${u}`},
+  whatsapp: {url:u=>`https://wa.me/${u}`,         sub:u=>`Chat with me`}
+};
+const row=[];
+Object.keys(P).forEach(k=>{
+  const u=clean(USERNAMES[k]), el=document.querySelector(`[data-p="${k}"]`);
+  if(!u){el.remove();return}
+  el.hidden=false; el.href=P[k].url(u); el.target="_blank"; el.rel="noopener";
+  el.querySelector(".sub").textContent=P[k].sub(u);
+  row.push(`<a href="${P[k].url(u)}" target="_blank" rel="noopener" aria-label="${k}">${I[k]}</a>`);
+});
+row.push(`<a href="mailto:${EMAIL.collab}" aria-label="Email">${I.email}</a>`);
+$("socials").innerHTML=row.join("");
+
+/* email cards with prefilled subject + body */
+const mail=(to,sub,body)=>`mailto:${to}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+document.querySelector('[data-mail="collab"]').href = mail(EMAIL.collab,"Collaboration enquiry","Hi,\n\nI would like to collaborate with you.\n\nBrand / Project:\nDetails:\nBudget:\n\nThanks!");
+document.querySelector('[data-mail="event"]').href  = mail(EMAIL.event,"Event booking enquiry","Hi,\n\nI would like to invite you to our event.\n\nEvent name:\nDate:\nCity / Venue:\nDetails:\n\nThanks!");
+$("mailBtn").href = mail(EMAIL.collab,"Hello","Hi,\n\n");
+
+/* tap ripple */
+document.querySelectorAll(".card").forEach(c=>c.addEventListener("pointerdown",e=>{
+  const r=c.getBoundingClientRect(),s=Math.max(r.width,r.height)/2,d=document.createElement("span");
+  d.className="ripple";d.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;
+  c.appendChild(d);setTimeout(()=>d.remove(),600);
+}));
+</script>
+</body>
+</html>
